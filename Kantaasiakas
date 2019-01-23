@@ -1,0 +1,42 @@
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class Kantaasiakas {
+
+	public static void main(String[] args) {
+
+		 double PurchasePrice = 0;
+		 String CustomerStatus;
+		 double FinalPrice = 0;
+
+		 Scanner input = new Scanner(System.in);
+		 
+		 System.out.print("Anna ostosten summa: ");
+		 PurchasePrice = input.nextDouble();
+		 
+
+		 System.out.print("Oletko kanta-asiakas (kyllä, ei): ");
+		 CustomerStatus = input.next();
+
+		 if (CustomerStatus.equals("kyllä")) {
+			 if (PurchasePrice > 1000) {
+				 FinalPrice = PurchasePrice - (PurchasePrice * 0.01);
+			 }
+			 else {
+				 FinalPrice = PurchasePrice - (PurchasePrice * 0.005);
+
+			 }
+		 }
+		 
+		 if (CustomerStatus.equals("ei")) {
+			 FinalPrice = PurchasePrice;
+		 }
+			
+		DecimalFormat desimaalit = new DecimalFormat("0.00");
+
+		System.out.print("Ostosten loppusumma on " +desimaalit.format(FinalPrice));
+		
+		
+	}
+
+}
